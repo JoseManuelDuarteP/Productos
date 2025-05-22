@@ -6,13 +6,14 @@ public class Cereales implements IAlimento {
     private String marca;
     private float precio;
     private String tipoCereal;
-    private int calorias = setCalorias();
+    private int calorias;
     private Date fechaCaducidad;
 
     public Cereales(String marca, float precio, String tipoCereal) {
         this.marca = marca;
         this.precio = precio;
         this.tipoCereal = tipoCereal;
+        this.calorias = setCalorias();
     }
 
     public String getMarca() {

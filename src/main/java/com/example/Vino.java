@@ -10,7 +10,7 @@ public class Vino implements ILiquido,IDescuento,IAlimento {
     private String tipoEnvase;
     private float volumen;
     private float descuento;
-    private int calorias = setCalorias();
+    private int calorias;
     private Date fechaCaducidad;
 
     public Vino(String marca, String tipoVino, float gradoAlcohol, float precio) {
@@ -18,6 +18,7 @@ public class Vino implements ILiquido,IDescuento,IAlimento {
         this.tipoVino = tipoVino;
         this.gradoAlcohol = gradoAlcohol;
         this.precio = precio;
+        this.calorias = setCalorias();
     }
 
     public String getMarca() {
