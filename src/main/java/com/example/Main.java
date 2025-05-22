@@ -22,13 +22,13 @@ public class Main {
 
         int option;
         do {
-            System.out.println("\nMenú:");
+            System.out.println("\n" + Color.VERDE.getCode() + "Menú:" + Color.RESET.getCode());
             System.out.println("1. Crear detergente");
             System.out.println("2. Crear cereales");
             System.out.println("3. Crear vino");
             System.out.println("4. Listar todos los productos");
             System.out.println("5. Sumar calorías");
-            System.out.println("0. Salir");
+            System.out.println(Color.ROJO.getCode() + "0. Salir" + Color.RESET.getCode());
             System.out.print("Seleccione una opción: ");
             option = sc.nextInt();
             sc.nextLine();
@@ -78,10 +78,7 @@ public class Main {
                     break;
 
                 case 4:
-                    System.out.println("Detergentes: ");
-                    for (Detergente detergenteL : detergentes) {
-                        System.out.println(detergenteL);
-                    }
+                    listarDetergentes();
 
                     listarCereales();
 
@@ -93,11 +90,11 @@ public class Main {
                     break;
 
                 case 0:
-                    System.out.println("Saliendo...");
+                    System.out.println(Color.AMARILLO.getCode() + "Saliendo..." + Color.RESET.getCode());
                     break;
 
                 default:
-                    System.out.println("Opción no válida.");
+                    System.out.println(Color.AMARILLO.getCode() + "Opción no válida." + Color.RESET.getCode());
             }
         } while (option != 0);
 
@@ -112,7 +109,7 @@ public class Main {
         do {
             System.out.println("\n1. Listar cereales");
             System.out.println("2. Listar vinos");
-            System.out.println("3. Para de añadir");
+            System.out.println(Color.ROJO.getCode() + "3. Para de añadir" + Color.RESET.getCode());
             System.out.print("Seleccione una opción: ");
             opcion = sc.nextInt();
             sc.nextLine();
@@ -131,21 +128,31 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.println("Volviendo...");
+                    System.out.println(Color.AMARILLO.getCode() + "Volviendo..." + Color.RESET.getCode());
                     break;
 
                 default:
-                    System.out.println("Opción no válida.");
+                    System.out.println(Color.AMARILLO.getCode() + "Opción no válida." + Color.RESET.getCode());
             }
         } while (opcion != 3);
         
-        System.out.println("Calorías totales: " + caloriasTotales);
+        System.out.println(Color.AMARILLO.getCode() + "Calorías totales: " + caloriasTotales +  Color.RESET.getCode());
+    }
+
+    public static void listarDetergentes() {
+        int index = 0;
+
+        System.out.println(Color.VERDE.getCode() + "Detergentes: " + Color.RESET.getCode());
+        for (Detergente deterL : detergentes) {
+            System.out.println(index + ". " + deterL.toString());
+            index++;
+        }
     }
 
     public static void listarCereales() {
         int index = 0;
 
-        System.out.println("Cereales: ");
+        System.out.println(Color.VERDE.getCode() + "Cereales: " + Color.RESET.getCode());
         for (Cereales cereaL : cereales) {
             System.out.println(index + ". " + cereaL.toString());
             index++;
@@ -155,7 +162,7 @@ public class Main {
     public static void listarVinos() {
         int index = 0;
 
-        System.out.println("Vinos: ");
+        System.out.println(Color.VERDE.getCode() + "Vinos: " + Color.RESET.getCode());
         for (Vino vinoL : vinos) {
             System.out.println(index + ". " + vinoL.toString());
             index++;
