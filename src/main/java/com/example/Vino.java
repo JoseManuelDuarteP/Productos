@@ -2,7 +2,7 @@ package com.example;
 
 import java.util.Date;
 
-public class Vino implements ILiquido,IDescuento,IAlimento {
+public class Vino extends ProductoAlimenticio implements ILiquido,IDescuento {
     private String marca;
     private String tipoVino;
     private float gradoAlcohol;
@@ -14,6 +14,7 @@ public class Vino implements ILiquido,IDescuento,IAlimento {
     private Date fechaCaducidad;
 
     public Vino(String marca, String tipoVino, float gradoAlcohol, float precio) {
+        super(0);
         this.marca = marca;
         this.tipoVino = tipoVino;
         this.gradoAlcohol = gradoAlcohol;

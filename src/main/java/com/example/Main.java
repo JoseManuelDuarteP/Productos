@@ -5,12 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
+
+    static List<Detergente> detergentes = new ArrayList<>();
+    static List<Cereales> cereales = new ArrayList<>();
+    static List<Vino> vinos = new ArrayList<>();
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        List<Detergente> detergentes = new ArrayList<>();
-        List<Cereales> cereales = new ArrayList<>();
-        List<Vino> vinos = new ArrayList<>();
 
         String marca;
         float precio;
@@ -21,11 +22,12 @@ public class Main {
 
         int option;
         do {
-            System.out.println("Menú:");
+            System.out.println("\nMenú:");
             System.out.println("1. Crear detergente");
             System.out.println("2. Crear cereales");
             System.out.println("3. Crear vino");
             System.out.println("4. Listar todos los productos");
+            System.out.println("5. Sumar calorías");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
             option = sc.nextInt();
@@ -56,7 +58,7 @@ public class Main {
 
                     Cereales cereal = new Cereales(marca, precio, tipoCereal);
                     cereales.add(cereal);
-                    System.out.println("Instanciando Cereales:\n " + cereales);
+                    System.out.println("Instanciando Cereales:\n " + cereal);
                     break;
 
                 case 3:
@@ -81,23 +83,93 @@ public class Main {
                         System.out.println(detergenteL);
                     }
 
-                    System.out.println("Cereales: ");
-                    for (Cereales cereaL : cereales) {
-                        System.out.println(cereaL);
-                    }
+                    listarCereales();
 
-                    System.out.println("Vinos: ");
-                    for (Vino vinoL : vinos) {
-                        System.out.println(vinoL);
-                    }
+                    listarVinos();
+                    break;
+
+                case 5:
+                    menuCalorias();
                     break;
 
                 case 0:
                     System.out.println("Saliendo...");
                     break;
+
                 default:
                     System.out.println("Opción no válida.");
             }
         } while (option != 0);
+
+        sc.close();
+    }
+
+    public static void menuCalorias() {
+        Scanner sc = new Scanner(System.in);
+        int opcion;
+        int caloriasTotales = 0;
+
+        do {
+            System.out.println("\n1. Listar cereales");
+            System.out.println("2. Listar vinos");
+            System.out.println("3. Para de añadir");
+            System.out.print("Seleccione una opción: ");
+            opcion = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcion) {
+                case 1:
+                    listarCereales();
+
+                    caloriasTotales += sumarCalorias();
+                    break;
+            
+                case 2:
+                    listarVinos();
+
+                    caloriasTotales += sumarCalorias();
+                    break;
+
+                case 3:
+                    System.out.println("Volviendo...");
+                    break;
+
+                default:
+                    System.out.println("Opción no válida.");
+            }
+        } while (opcion != 3);
+        
+        System.out.println("Calorías totales: " + caloriasTotales);
+    }
+
+    public static void listarCereales() {
+        int index = 0;
+
+        System.out.println("Cereales: ");
+        for (Cereales cereaL : cereales) {
+            System.out.println(index + ". " + cereaL.toString());
+            index++;
+        }
+    }
+
+    public static void listarVinos() {
+        int index = 0;
+
+        System.out.println("Vinos: ");
+        for (Vino vinoL : vinos) {
+            System.out.println(index + ". " + vinoL.toString());
+            index++;
+        }
+    }
+
+    public static int sumarCalorias() {
+        Scanner sc = new Scanner(System.in);
+        int seleccion;
+
+        System.out.println("Artículo a añadir (Índice): ");
+        seleccion = sc.nextInt();
+        sc.nextLine();
+
+        return cereales.get(seleccion).getCalorias();
     }
 }

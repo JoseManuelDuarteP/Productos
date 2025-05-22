@@ -10,6 +10,4 @@ public interface IAlimento {
 
     int getCalorias();
 
-    int setCalorias(); //Vi apropiado añadir este método en la interfaz
-
 }

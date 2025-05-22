@@ -2,14 +2,14 @@ package com.example;
 
 import java.util.Date;
 
-public class Cereales implements IAlimento {
+public class Cereales extends ProductoAlimenticio {
     private String marca;
     private float precio;
     private String tipoCereal;
-    private int calorias;
     private Date fechaCaducidad;
 
     public Cereales(String marca, float precio, String tipoCereal) {
+        super(0);
         this.marca = marca;
         this.precio = precio;
         this.tipoCereal = tipoCereal;
