@@ -1,12 +1,12 @@
 package com.example;
 
-import java.util.Date;
-
 public interface IAlimento {
 
-    void setCaducidad(Date fechaCaducidad);
+    void setCaducidad(String fechaCaducidad);
 
-    Date getCaducidad();
+    String setCaducidadAut();
+
+    String getCaducidad();
 
     int getCalorias();
 

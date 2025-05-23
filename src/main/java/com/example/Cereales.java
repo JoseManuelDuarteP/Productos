@@ -1,6 +1,7 @@
 package com.example;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Cereales extends ProductoAlimenticio {
     private String marca;
@@ -13,6 +14,7 @@ public class Cereales extends ProductoAlimenticio {
         this.precio = precio;
         this.tipoCereal = tipoCereal;
         this.calorias = setCaloriasAut();
+        this.fechaCaducidad = setCaducidadAut();
     }
 
     public String getMarca() {
@@ -46,7 +48,7 @@ public class Cereales extends ProductoAlimenticio {
     }
 
     @Override
-    public Date getCaducidad() {
+    public String getCaducidad() {
         return fechaCaducidad;
     }
 
@@ -56,7 +58,18 @@ public class Cereales extends ProductoAlimenticio {
     }
 
     @Override
-    public void setCaducidad(Date fechaCaducidad) {
+    public String setCaducidadAut() {
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.YEAR, 1); // La caducidad por defecto de los cereales será de 1 año hasta que se cambie
+
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaFormato = formato.format(cal.getTime());
+
+        return fechaFormato;
+    }
+
+    @Override
+    public void setCaducidad(String fechaCaducidad) {
         this.fechaCaducidad = fechaCaducidad;
     }
 

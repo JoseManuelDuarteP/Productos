@@ -1,12 +1,10 @@
 package com.example;
 
-import java.util.Date;
-
 public abstract class ProductoAlimenticio implements IAlimento {
     protected int calorias;
-    protected Date fechaCaducidad;
+    protected String fechaCaducidad;
 
-    ProductoAlimenticio(int calorias, Date fechaCaducidad) {
+    ProductoAlimenticio(int calorias, String fechaCaducidad) {
         this.calorias = calorias;
         this.fechaCaducidad = fechaCaducidad;
     }
