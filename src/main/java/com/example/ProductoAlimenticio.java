@@ -11,7 +11,7 @@ public abstract class ProductoAlimenticio implements IAlimento {
         this.fechaCaducidad = fechaCaducidad;
     }
 
-    public int setCalorias() {
+    protected int setCalorias() {
         return 0;
     }
 }

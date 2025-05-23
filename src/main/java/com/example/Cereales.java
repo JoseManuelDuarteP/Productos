@@ -61,7 +61,7 @@ public class Cereales extends ProductoAlimenticio {
     }
     
     @Override
-    public int setCalorias() {
+    protected int setCalorias() {
         if (this.tipoCereal.equalsIgnoreCase("espelta")) {
             return 5;
         } else if (this.tipoCereal.equalsIgnoreCase("maíz")) {

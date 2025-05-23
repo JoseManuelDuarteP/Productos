@@ -113,7 +113,7 @@ public class Vino extends ProductoAlimenticio implements ILiquido,IDescuento {
     }
     
     @Override
-    public int setCalorias() {
+    protected int setCalorias() {
         return (int) gradoAlcohol*10;
     }
 }
