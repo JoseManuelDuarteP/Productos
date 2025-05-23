@@ -10,11 +10,9 @@ public class Vino extends ProductoAlimenticio implements ILiquido,IDescuento {
     private String tipoEnvase;
     private float volumen;
     private float descuento;
-    private int calorias;
-    private Date fechaCaducidad;
 
     public Vino(String marca, String tipoVino, float gradoAlcohol, float precio) {
-        super(0);
+        super(0, null);
         this.marca = marca;
         this.tipoVino = tipoVino;
         this.gradoAlcohol = gradoAlcohol;

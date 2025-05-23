@@ -6,10 +6,9 @@ public class Cereales extends ProductoAlimenticio {
     private String marca;
     private float precio;
     private String tipoCereal;
-    private Date fechaCaducidad;
 
     public Cereales(String marca, float precio, String tipoCereal) {
-        super(0);
+        super(0, null);
         this.marca = marca;
         this.precio = precio;
         this.tipoCereal = tipoCereal;
