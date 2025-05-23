@@ -12,7 +12,7 @@ public class Cereales extends ProductoAlimenticio {
         this.marca = marca;
         this.precio = precio;
         this.tipoCereal = tipoCereal;
-        this.calorias = setCalorias();
+        this.calorias = setCaloriasAut();
     }
 
     public String getMarca() {
@@ -59,9 +59,14 @@ public class Cereales extends ProductoAlimenticio {
     public void setCaducidad(Date fechaCaducidad) {
         this.fechaCaducidad = fechaCaducidad;
     }
+
+    @Override
+    public void setCalorias(int calorias) {
+        this.calorias = calorias;
+    }
     
     @Override
-    protected int setCalorias() {
+    protected int setCaloriasAut() {
         if (this.tipoCereal.equalsIgnoreCase("espelta")) {
             return 5;
         } else if (this.tipoCereal.equalsIgnoreCase("maíz")) {

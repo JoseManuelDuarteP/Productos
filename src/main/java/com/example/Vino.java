@@ -17,7 +17,7 @@ public class Vino extends ProductoAlimenticio implements ILiquido,IDescuento {
         this.tipoVino = tipoVino;
         this.gradoAlcohol = gradoAlcohol;
         this.precio = precio;
-        this.calorias = setCalorias();
+        this.calorias = setCaloriasAut();
     }
 
     public String getMarca() {
@@ -111,9 +111,14 @@ public class Vino extends ProductoAlimenticio implements ILiquido,IDescuento {
     public void setCaducidad(Date fechaCaducidad) {
         this.fechaCaducidad = fechaCaducidad;
     }
+
+    @Override
+    public void setCalorias(int calorias) {
+        this.calorias = calorias;
+    }
     
     @Override
-    protected int setCalorias() {
+    protected int setCaloriasAut() {
         return (int) gradoAlcohol*10;
     }
 }
